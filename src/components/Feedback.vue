@@ -93,6 +93,7 @@
 </template>
 
 <script>
+
 import axios from 'axios'
 
 export default {
@@ -108,7 +109,7 @@ export default {
   },
   methods: {
     getFeedback () {
-      const path = 'http://localhost:8000/api/feedback'
+      const path = process.env.BACKEND_BASE_URI + 'feedback'
       axios
         .get(path)
         .then((res) => {
@@ -119,7 +120,7 @@ export default {
         })
     },
     addFeedback (payload) {
-      const path = 'http://localhost:8000/api/feedback'
+      const path = process.env.BACKEND_BASE_URI + 'feedback'
       axios
         .post(path, payload)
         .then(() => {
